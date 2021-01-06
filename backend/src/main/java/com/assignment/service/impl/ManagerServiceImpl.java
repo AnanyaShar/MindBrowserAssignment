@@ -145,7 +145,7 @@ public class ManagerServiceImpl implements ManagerService {
 	public String updateEmployee(Long employeeId, UpdateEmployeeRequest updateEmployeeRequest)
 			throws AssignmentException {
 		Optional<Employee> employeeRetrieved = employeeRepository.findById(employeeId);
-		if(employeeRetrieved.isEmpty()) {
+		if(!employeeRetrieved.isPresent()) {
 			throw new AssignmentException(HttpStatus.NOT_FOUND, "Employee Not Found");
 		} else {
 			Employee employee = employeeRetrieved.get();

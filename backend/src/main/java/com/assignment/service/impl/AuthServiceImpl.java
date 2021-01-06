@@ -45,10 +45,10 @@ public class AuthServiceImpl implements AuthService {
 	@Override
 	public LoginResponse login(LoginRequest request) throws AssignmentException {
 		Optional<ManagerEntity> manager = managerRepository.findByEmail(request.getEmail());
-		if(manager.isEmpty() || !passwordEncoder.matches(request.getPassword(), manager.get().getPasswordHash())) {
-			throw new AssignmentException(HttpStatus.UNAUTHORIZED, AUTH_ERROR);
+		if(manager.isPresent() && passwordEncoder.matches(request.getPassword(), manager.get().getPasswordHash())) {		
+			return new LoginResponse(jwtTokenProvider.generateToken(manager.get()));
 		}
-		return new LoginResponse(jwtTokenProvider.generateToken(manager.get()));
+		throw new AssignmentException(HttpStatus.UNAUTHORIZED, AUTH_ERROR);
 	}
 
 }
