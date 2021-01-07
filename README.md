@@ -30,25 +30,25 @@ java -jar target/developer-portal-pai-0.0.1-SNAPSHOT.jar
 2. Database address: localhost:5432, user: postgres, password: Ananya (database used postgres)
 
 ## API Environment Variables
-• spring.datasource.url - database jdbc url, required. e.g. jdbc:postgresql://db:5432/company
-• spring.datasource.username - database username, required.
-• spring.datasource.username - database password, required.
-• spring.datasource.driver-class-name - database driver class name, required. e.g. org.postgresql.Driver
-• PASSWORD_HASH_SECRET - Password hash secret, default: change-this-secret
-• JWT_SECRET - JWT token signing key, base64 encoded string, should be at least 256 bits, default: xZNEEuk91OgleeDllowBLt0F48HPVh/zfRoXsRgB0Lc=
-• JWT_VALID_DURATION - JWT token expiry time, see java.time.Duration.parse for the format. default: PT24H
-• PASSWORD_POLICY - Password policy YAML resource location, will be resolved to a spring resource, default: classpath:/password-validation-policy.yaml
-• spring.profiles.active=dev (environment to run default: dev for production choose prod)
-• spring.jpa.hibernate.ddl-auto=create-drop (automatically delete and create database schema everytime the application runs)
+1. spring.datasource.url - database jdbc url, required. e.g. jdbc:postgresql://db:5432/company
+2. spring.datasource.username - database username, required.
+3. spring.datasource.username - database password, required.
+4. spring.datasource.driver-class-name - database driver class name, required. e.g. org.postgresql.Driver
+5. PASSWORD_HASH_SECRET - Password hash secret, default: change-this-secret
+6. JWT_SECRET - JWT token signing key, base64 encoded string, should be at least 256 bits, default: xZNEEuk91OgleeDllowBLt0F48HPVh/zfRoXsRgB0Lc=
+7. JWT_VALID_DURATION - JWT token expiry time, see java.time.Duration.parse for the format. default: PT24H
+8. PASSWORD_POLICY - Password policy YAML resource location, will be resolved to a spring resource, default: classpath:/password-validation-policy.yaml
+9. spring.profiles.active=dev (environment to run default: dev for production choose prod)
+10. spring.jpa.hibernate.ddl-auto=create-drop (automatically delete and create database schema everytime the application runs)
 
 ## Password policy configuration
 
 It's using the passay library for validating passwords. Currently, the code only supports a subset of the rules available:
-•Length - min and max lengths
-•AllowedCharacter - allowed characters in password
-•Username - password should not contain the username (email)
-•NoWhitespace - password should not contain white spaces
-•Dictionary - password should not be any of the words
+1. Length - min and max lengths
+2. AllowedCharacter - allowed characters in password
+3. Username - password should not contain the username (email)
+4. NoWhitespace - password should not contain white spaces
+5. Dictionary - password should not be any of the words
 
 Extending the rules should be straightforward (see com.assignment.security.PasswordValidationPolicy).
 
