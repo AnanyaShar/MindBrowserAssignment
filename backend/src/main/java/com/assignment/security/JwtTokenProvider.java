@@ -26,9 +26,11 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 @Setter
 @Component
+@Slf4j
 public class JwtTokenProvider {
 
     private static final String PREFIX = "bearer ";
@@ -52,6 +54,7 @@ public class JwtTokenProvider {
 
     public String resolveToken(HttpServletRequest request) {
         String authHeader = request.getHeader("Authorization");
+        log.info("Checking Autentication");
         if (authHeader != null && authHeader.toLowerCase().startsWith(PREFIX)) {
             return authHeader.substring(7);
         }

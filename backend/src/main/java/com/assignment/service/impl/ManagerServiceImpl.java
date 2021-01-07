@@ -39,6 +39,7 @@ public class ManagerServiceImpl implements ManagerService {
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
+	
 
 	@Override
 	public String registerManager(RegisterUser user) throws AssignmentException {
@@ -141,7 +142,6 @@ public class ManagerServiceImpl implements ManagerService {
 			getAllEmployee.setEmployee(employee.stream().map(EmployeeModel::new).collect(Collectors.toList()));
 			return getAllEmployee;
 		} catch (Exception ex) {
-			ex.printStackTrace();
 			throw new AssignmentException(HttpStatus.INTERNAL_SERVER_ERROR, "Failed to fetch employee list");
 		}
 
