@@ -1,6 +1,6 @@
 package com.assignment.model;
 
-import com.assignment.entity.Employee;
+import com.assignment.entity.User;
 
 import lombok.Data;
 
@@ -31,7 +31,7 @@ public class EmployeeModel {
  
 	private String dob;
 	
-	public EmployeeModel(Employee employee) {
+	public EmployeeModel(User employee) {
 		setAddress(employee.getAddress());
 		setCity(employee.getCity());
 		setCompany(employee.getCompany());
