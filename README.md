@@ -32,7 +32,7 @@ java -jar target/developer-portal-pai-0.0.1-SNAPSHOT.jar
 ## API Environment Variables
 1. spring.datasource.url - database jdbc url, required. e.g. jdbc:postgresql://db:5432/company
 2. spring.datasource.username - database username, required.
-3. spring.datasource.username - database password, required.
+3. spring.datasource.password - database password, required.
 4. spring.datasource.driver-class-name - database driver class name, required. e.g. org.postgresql.Driver
 5. PASSWORD_HASH_SECRET - Password hash secret, default: change-this-secret
 6. JWT_SECRET - JWT token signing key, base64 encoded string, should be at least 256 bits, default: xZNEEuk91OgleeDllowBLt0F48HPVh/zfRoXsRgB0Lc=
