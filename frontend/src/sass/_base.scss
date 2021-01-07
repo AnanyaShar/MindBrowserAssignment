@@ -1,0 +1,35 @@
+// COLOR VARIABLES
+$color-primary: #1755a4;
+$color-primary-dark: #044daa;
+$color-secondary: #2a8000;
+$color-secondary-light: #66cc00;
+
+$color-background-light: #f7f7f8;
+
+$color-text-primary: #4c433d;
+$color-text-secondary: #545955;
+
+$color-error: #cc0000;
+$color-info: #66cc00;
+
+$color-disabled: #a5a8ac;
+
+// Sanitize CSS
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.color-primary {
+  color: $color-primary;
+}

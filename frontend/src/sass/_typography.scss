@@ -1,0 +1,148 @@
+// Typography of Global Weight types initliazed
+// Using various different font faces
+
+@mixin bold {
+  font-family: 'HelveticaNeue-Bold';
+}
+
+@mixin bold-italic {
+  font-family: 'HelveticaNeue-BoldItalic';
+}
+
+@mixin bold-italic {
+  font-family: 'HelveticaNeue-BoldItalic';
+}
+
+@mixin italic {
+  font-family: 'HelveticaNeue-Italic';
+}
+
+@mixin light {
+  font-family: 'HelveticaNeue-Light';
+}
+
+@mixin light-italic {
+  font-family: 'HelveticaNeue-LightItalic';
+}
+
+@mixin medium {
+  font-family: 'HelveticaNeue-Medium';
+}
+
+@mixin medium-italic {
+  font-family: 'HelveticaNeue-MediumItalic';
+}
+
+@mixin thin {
+  font-family: 'HelveticaNeue-Thin';
+}
+
+@mixin thin-italic {
+  font-family: 'HelveticaNeue-ThinItalic';
+}
+
+@mixin ultralight {
+  font-family: 'HelveticaNeue-UltraLight';
+}
+
+@mixin regular {
+  font-family: 'HelveticaNeue';
+}
+
+@font-face {
+  font-family: 'HelveticaNeue-Bold';
+  src: url('../assets/fonts/HelveticaNeue-Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeue-BoldItalic';
+  src: url('../assets/fonts/HelveticaNeue-BoldItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeue-CondensedBlack';
+  src: url('../assets/fonts/HelveticaNeue-CondensedBlack.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeue-CondensedBold';
+  src: url('../assets/fonts/HelveticaNeue-CondensedBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeue-Italic';
+  src: url('../assets/fonts/HelveticaNeue-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeue-Light';
+  src: url('../assets/fonts/HelveticaNeue-Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeue-LightItalic';
+  src: url('../assets/fonts/HelveticaNeue-LightItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeue-Medium';
+  src: url('../assets/fonts/HelveticaNeue-Medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeue-MediumItalic';
+  src: url('../assets/fonts/HelveticaNeue-MediumItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeue-Thin';
+  src: url('../assets/fonts/HelveticaNeue-Thin.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeue-ThinItalic';
+  src: url('../assets/fonts/HelveticaNeue-ThinItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeue-UltraLight';
+  src: url('../assets/fonts/HelveticaNeue-UltraLight.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeue-UltraLightItalic';
+  src: url('../assets/fonts/HelveticaNeue-UltraLightItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: url('../assets/fonts/HelveticaNeue.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

@@ -1,0 +1,22 @@
+// Global CSS Imports
+@import '../../sass/base';
+@import '../../sass/typography';
+
+.avatar-image {
+  height: 38px;
+  width: 38px;
+  border-radius: 19px;
+}
+
+.avatar-initials {
+  height: 38px;
+  width: 38px;
+  border-radius: 19px;
+  display: inline-flex;
+  background-color: $color-primary;
+  color: white;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  text-transform: uppercase;
+}

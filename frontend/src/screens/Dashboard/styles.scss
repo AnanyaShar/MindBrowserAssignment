@@ -1,0 +1,30 @@
+// Global CSS Imports
+@import '../../sass/base';
+@import '../../sass/typography';
+
+.dashboard {
+    margin-top: -16px;
+}
+
+.employee-list-container {
+    margin: 20px;
+
+    .list-header {
+        display: flex;
+        justify-content: space-between;
+        height: 50px;
+        padding: 35px;
+
+        button {
+            background-color: #044daa;
+            border-radius: 25px;
+            width: 200px;
+            color: white;
+            font-size: medium;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+        }
+    }
+}

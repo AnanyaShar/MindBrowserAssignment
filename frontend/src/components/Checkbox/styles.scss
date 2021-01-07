@@ -1,0 +1,75 @@
+// Global CSS Imports
+@import '../../sass/typography';
+@import '../../sass/base';
+
+.control {
+  @include light;
+  display: block;
+  position: relative;
+  padding-left: 31px;
+  margin-bottom: 5px;
+  padding-top: 3px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.control input {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+}
+.control_indicator {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  background: #ffffff;
+  border: 1px solid;
+  border-radius: 4px;
+}
+.control:hover input ~ .control_indicator,
+.control input:focus ~ .control_indicator {
+  background: #ffffff;
+}
+
+.control input:checked ~ .control_indicator {
+  background: #2a8000;
+}
+
+.control input:focus ~ .control_indicator {
+  box-shadow: 0 0 0 0.2rem rgba(34, 102, 0, 0.5);
+}
+
+.control:hover input:not([disabled]):checked ~ .control_indicator,
+.control input:checked:focus ~ .control_indicator {
+  background: #2a8000;
+  border: 1px solid #2a8000;
+  box-shadow: 0 0 0 0.2rem rgba(34, 102, 0, 0.5);
+}
+.control input:disabled ~ .control_indicator {
+  background: #e6e6e6;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.control_indicator:after {
+  box-sizing: unset;
+  content: '';
+  position: absolute;
+  display: none;
+}
+.control input:checked ~ .control_indicator:after {
+  display: block;
+}
+.control-checkbox .control_indicator:after {
+  left: 8px;
+  top: 4px;
+  width: 3px;
+  height: 8px;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.control-checkbox input:disabled ~ .control_indicator:after {
+  border-color: #7b7b7b;
+}

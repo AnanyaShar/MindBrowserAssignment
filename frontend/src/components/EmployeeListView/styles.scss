@@ -1,0 +1,60 @@
+.employee-list-view {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+
+    .flex1 {
+        flex: 1;
+    }
+
+    .flex2 {
+        flex: 2;
+    }
+
+    .flex3 {
+        flex: 3;
+    }
+
+    h3 {
+        text-align: left;
+    }
+
+    .actions {
+        flex: 2;
+        justify-content: space-between;
+        display: flex;
+
+        .update-btn {
+            flex: 1;
+            height: 50px;
+            border-radius: 40px;
+            font-size: medium;
+            outline: none;
+            border: none;
+            background-color: black;
+            cursor: pointer;
+            padding: 0px;
+            width: 45%;
+            margin: 0px 10px;
+            color: white;
+            font-weight: 600;
+        }
+    
+        .delete-btn {
+            flex: 1;
+            height: 50px;
+            border-radius: 40px;
+            font-size: medium;
+            outline: none;
+            border: none;
+            background-color: red;
+            cursor: pointer;
+            padding: 0px;
+            width: 45%;
+            color: white;
+            margin: 0px 10px;
+            font-weight: bold;
+        }
+    }
+
+}

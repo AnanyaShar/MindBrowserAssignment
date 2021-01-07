@@ -1,0 +1,44 @@
+// Global CSS Imports
+@import '../../sass/base';
+@import '../../sass/typography';
+
+.employee-list {
+    background-color: white;
+    border-radius: 10px;
+    margin: 35px;
+    border: 2px solid #044daa;
+
+    .list-table-header {
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+
+        .flex1 {
+            flex: 1;
+        }
+
+        .flex2 {
+            flex: 2;
+        }
+
+        .flex3 {
+            flex: 3;
+        }
+
+        h3 {
+            text-align: left;
+        }
+
+        .actions-header {
+            text-align: center;
+        }
+    }
+
+    .employee-list-view-container {
+        border-top: 2px solid #044daa;
+
+        .employee-list-view:nth-child(odd) {
+            background-color: #ededed;
+        }
+    }
+}

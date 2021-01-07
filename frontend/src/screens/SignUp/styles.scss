@@ -1,0 +1,118 @@
+// Global CSS Imports
+@import '../../sass/base';
+@import '../../sass/typography';
+
+.login-container {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+	align-items: center;
+	margin: 0px 100px;
+}
+
+.login-card {
+  margin-left: 5%;
+  background-color: rgba(255, 255, 255, 0.88);
+  text-align: left;
+  min-width: 420px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  opacity: 0.8757207961309523;
+  padding: 25px 32px 50px 32px;
+	max-width: 600px;
+  font-size: 1rem;
+  line-height: 1.25rem;
+	color: #2a2c2e;
+	
+	.email-container {
+		margin-bottom: 25px;
+	}
+
+	.password-container {
+		margin-bottom: 25px;
+	}
+
+	.terms-conditions-wrapper {
+		margin-top: 20px;
+		
+		p {
+			text-align: center;
+			font-family: 'Montserrat_Light';
+			color: #666663;
+			font-size: medium;
+			margin: 3px;
+		}
+	}
+
+  h1 {
+	color: $color-text-secondary;
+	font-size: 2.75rem;
+	line-height: 3.25rem;
+	margin-bottom: 50px;
+  }
+
+  .label {
+	@include medium;
+	font-size: 1rem;
+	line-height: 1.25rem;
+	color: #2a2c2e;
+	margin-bottom: 6px !important;
+  }
+
+  button {
+	@include medium;
+	width: 100%;
+	margin-top: 30px;
+	margin-bottom: 35px;
+	border: 0;
+	color: #ffffff;
+	padding: 14px 0px 17px 0px;
+	font-size: 1.0625rem;
+	line-height: 1.3125rem;
+	border-radius: 4px;
+	transition: all 0.15s ease-in-out;
+
+	&:hover {
+	  background-color: #226600;
+	}
+
+	&:focus {
+	  outline: none !important;
+	  box-shadow: 0 0 0 0.2rem rgba(34, 102, 0, 0.5);
+	  background-color: #226600;
+	}
+
+	&:disabled {
+	  background-color: $color-disabled;
+	}
+
+	background: none;
+	box-shadow: none;
+	background-color: $color-secondary;
+  }
+
+  .error-message {
+	@include light;
+	color: $color-error;
+	margin-top: 6px;
+	font-size: 0.9rem;
+	line-height: 1rem;
+	}
+}
+
+.login-wave {
+  z-index: -2;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 18%;
+}
+
+.login-background {
+  z-index: -1;
+  position: absolute;
+  width: 38%;
+  height: auto;
+  right: 5%;
+  top: 27%;
+}
