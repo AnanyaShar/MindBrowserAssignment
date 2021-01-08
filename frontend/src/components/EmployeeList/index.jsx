@@ -19,11 +19,9 @@ import {ProgressBar} from 'react-bootstrap';
  * Employee List Component
  * @constructor
  */
-function EmployeeList({files, updateEmployee}) {
+function EmployeeList({files, updateEmployee, deleteEmployee}) {
   const history = useHistory();
   const location = useLocation();
-
-  console.log(files);
 
   return (
     <div className="employee-list">
@@ -38,7 +36,12 @@ function EmployeeList({files, updateEmployee}) {
 
         <div className="employee-list-view-container">
           {!!files && files.map((file, index) => (
-            <EmployeeListView key={index} file={file} updateEmployeeHandler={updateEmployee}/>
+            <EmployeeListView 
+              key={index} 
+              file={file} 
+              updateEmployeeHandler={updateEmployee}
+              deleteEmployeeHandler={deleteEmployee}
+            />
           ))}
         </div>
     </div>

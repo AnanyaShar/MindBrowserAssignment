@@ -9,7 +9,7 @@ import AddEmployeeModal from './AddEmployeeModal';
 import EmployeeList from '../../components/EmployeeList';
 import Loading from '../../components/Loading';
 import TopBar from '../../components/TopBar';
-import {createEmployee, updateEmployee, getEmployees} from '../../utils/service'
+import {createEmployee, updateEmployee, deleteEmployee, getEmployees} from '../../utils/service'
 // import Stats from './Stats';
 // import {setStats} from '../../store/user/actions';
 // import {RootState} from '../../store';
@@ -30,6 +30,8 @@ function DashboardScreen() {
   const [loading, setLoading] = useState(false);
   const [addEmployee, setAddEmployee] = useState(false);
   const [successAddEmployee, setSuccessAddEmployee] = useState('');
+  const [successUpdateEmployee, setSuccessUpdateEmployee] = useState('');
+  const [successDeleteEmployee, setSuccessDeleteEmployee] = useState('');
 
   const dispatch = useDispatch();
 
@@ -78,7 +80,7 @@ function DashboardScreen() {
       setLoading(true);
       updateEmployee(employee)
         .then((res) => {
-          setSuccessAddEmployee('Employee updated Successfully');
+          setSuccessUpdateEmployee('Employee updated Successfully');
         })
         .then(() => {
           return getEmployees();
@@ -93,7 +95,32 @@ function DashboardScreen() {
           setLoading(false);
         })
         .catch((err) => {
-          setSuccessAddEmployee(err.response.data.message);
+          setSuccessUpdateEmployee(err.response.data.message);
+        });
+    }
+  }
+
+  const deleteEmployeeHandler = (employeeId) => {
+    if(employeeId) {
+      setLoading(true);
+      deleteEmployee(employeeId)
+        .then((res) => {
+          setSuccessDeleteEmployee('Employee deleted Successfully');
+        })
+        .then(() => {
+          return getEmployees();
+        })
+        .then((res) => {
+          dispatch(setProfile(res.data));
+        })
+        .then(() => {
+          history.push('/dashboard')
+        })
+        .finally(() => {
+          setLoading(false);
+        })
+        .catch((err) => {
+          setSuccessDeleteEmployee(err.response.data.message);
         });
     }
   }
@@ -126,6 +153,7 @@ function DashboardScreen() {
         <EmployeeList 
           files={profiles.employee}
           updateEmployee={updateEmployeeHandler}
+          deleteEmployee={deleteEmployeeHandler}
         />
       </div>
 

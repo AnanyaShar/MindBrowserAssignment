@@ -7,10 +7,16 @@ import TextInput from '../../../components/TextInput';
 
 import {validateEmail} from '../../../utils/string';
 
-const DeleteEmployeeModal = ({ handleClose, show }) => {
+const DeleteEmployeeModal = ({ handleClose, show, employeeId, deleteEmployee }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
 
   const [loading, setLoading] = useState(false);
+
+  const deleteEmployeeHandler = () => {
+    handleClose()
+
+    deleteEmployee(employeeId)
+  }
 
   return (
     <div className={showHideClassName}>
@@ -23,7 +29,7 @@ const DeleteEmployeeModal = ({ handleClose, show }) => {
         
         <div className="modal-body">
           <div className="delete-anchors">
-            <a onClick={handleClose} className="delete-anchor">
+            <a onClick={deleteEmployeeHandler} className="delete-anchor">
                 Delete
             </a>
             <a onClick={handleClose} className="cancel-anchor">
