@@ -76,13 +76,15 @@ function TopBar() {
             <>
                     <Avatar
                     //   src={`${imageUrl}?b=%23${getRandomColor()}`}
-                      name="John Doe"
+                      name="Ananya Sharma"
                     />
-                    <img
-                      src={LogOut}
-                      className="topbar-logout"
-                      alt="logout"
-                    />
+                    <a className="logout-anchor" href="/">
+                      <img
+                        src={LogOut}
+                        className="topbar-logout"
+                        alt="logout"
+                      />
+                    </a>
                 </>
           ) : (
             <span className="topbar-login">Login</span>

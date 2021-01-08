@@ -45,6 +45,17 @@ function DashboardScreen() {
     shallowEqual,
   );
 
+  useEffect(() => {
+    setLoading(true);
+    getEmployees()
+      .then((res) => {
+        dispatch(setProfile(res.data));
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, [dispatch]);
+
     // Redirect if not authenticated
     if (!isAuthenticated()) {
       history.push('/');
