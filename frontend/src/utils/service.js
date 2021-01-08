@@ -59,7 +59,7 @@ export function createEmployee(employee) {
       city: 'DUMMY',
       country: 'DUMMY',
       state: 'DUMMY',
-      zipcode: '12456',
+      zipCode: '12456',
       mobile: '7209348092',
       dob: '28/12/1997'
     },

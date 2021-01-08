@@ -9,7 +9,7 @@ import AddEmployeeModal from './AddEmployeeModal';
 import EmployeeList from '../../components/EmployeeList';
 import Loading from '../../components/Loading';
 import TopBar from '../../components/TopBar';
-import {createEmployee} from '../../utils/service'
+import {createEmployee, getEmployees} from '../../utils/service'
 // import Stats from './Stats';
 // import {setStats} from '../../store/user/actions';
 // import {RootState} from '../../store';
@@ -18,6 +18,7 @@ import {isAuthenticated} from '../../utils/service';
 import './styles.scss';
 // import {appendFiles, setFiles} from '../../store/dashboard/actions';
 import {Row, Spinner, Col} from 'react-bootstrap';
+import { setProfile } from '../../store/user/actions';
 
 /**
  * Dashboard Screen
@@ -28,7 +29,7 @@ function DashboardScreen() {
 
   const [loading, setLoading] = useState(false);
   const [addEmployee, setAddEmployee] = useState(false);
-  const [successAddEmployee, setSuccessAddEmployee] = useState(false);
+  const [successAddEmployee, setSuccessAddEmployee] = useState('');
 
   const dispatch = useDispatch();
 
@@ -42,52 +43,33 @@ function DashboardScreen() {
     shallowEqual,
   );
 
-  let filterOptions;
-
-  const employees = [
-    {
-      id: "1",
-      email: "ananya.sharma@wipro.com",
-      firstName: "Ananya",
-      lastName: "Sharma",
-      company: "Wipro",
-      dob: "28/11/1997",
-      address: "Kaafi Ajeeb si Jagah, Pin - Pata Nahi, Bhilwara",
-    },
-    {
-      id: "2",
-      email: "kratika.khandelwal@wipro.com",
-      firstName: "Kratika",
-      lastName: "Khandelwal",
-      company: "Wipro",
-      dob: "30/07/1997",
-      address: "Kaafi Ajeeb si Jagah, Pin - Pata Nahi, Delhi",
-    },
-    {
-      id: "3",
-      email: "shreya.agnihotri@wipro.com",
-      firstName: "Shreya",
-      lastName: "Agnihotri",
-      company: "Wipro",
-      dob: "No Idea",
-      address: "Kaafi Ajeeb si Jagah, Pin - Pata Nahi, Pune",
-    }
-  ]
-
     // Redirect if not authenticated
     if (!isAuthenticated()) {
       history.push('/');
     }
 
   const addEmployeeHandler = (employee) => {
-    console.log(employee);
     if(employee) {
       setLoading(true);
       createEmployee(employee)
         .then((res) => {
-          console.log(res);
-          setSuccessAddEmployee(true);
+          setSuccessAddEmployee('Employee created Successfully');
         })
+        .then(() => {
+          return getEmployees();
+        })
+        .then((res) => {
+          dispatch(setProfile(res.data));
+        })
+        .then(() => {
+          history.push('/dashboard')
+        })
+        .finally(() => {
+          setLoading(false);
+        })
+        .catch((err) => {
+          setSuccessAddEmployee(err.response.data.message);
+        });
     }
   }
 
@@ -101,7 +83,6 @@ function DashboardScreen() {
 
   return (
     <div className="dashboard">
-      {/* {role !== 'ADMIN' ? <Stats /> : null} */}
 
       <AddEmployeeModal 
         show={addEmployee}
