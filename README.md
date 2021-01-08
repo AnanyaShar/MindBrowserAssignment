@@ -1,10 +1,20 @@
 # MindBrowserAssignment
 
 ## Requirements
+
+### Backend
 1. Java 11
 2. Spring 2.4.1
 
-## Building executable jar
+### Frontend
+- Create React App
+- React 16
+- Redux
+- React Bootstrap
+- Axios
+- React Router
+
+## [Backend] Building executable jar
 
 ### Run the following command to build the project:
 ./mvnw package
@@ -25,7 +35,7 @@ An executable jar (developer-portal-api-0.0.1-SNAPSHOT.jar) will be built in tar
 Running the jar (Note it requires several environment variables to start successfully):
 java -jar target/developer-portal-pai-0.0.1-SNAPSHOT.jar
 
-# Two containers will be started: API server, database.
+## Two containers will be started: API server, database.
 1. API server address: localhost:8080 (can be configured in application-properties)
 2. Database address: localhost:5432, user: postgres, password: Ananya (database used postgres)
 
@@ -51,6 +61,15 @@ It's using the passay library for validating passwords. Currently, the code only
 5. Dictionary - password should not be any of the words
 
 Extending the rules should be straightforward (see com.assignment.security.PasswordValidationPolicy).
+
+## [Frontend] Start the React App
+
+1. In the frontend directory, hit `npm install`
+2. After installing all the packages and dependencies, hit `npm start`
+
+### Application will be running on port 3000 by default
+
+### Note: If backend APIs are not executing on 8080, make sure to update the port on frontend, at frontend/src/utils/service.js
 
 ## Verification of Assignment
 
