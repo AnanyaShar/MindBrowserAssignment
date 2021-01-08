@@ -117,6 +117,8 @@ function SignUpScreen() {
         <button onClick={handleSignupClick} disabled={!validateEmail(email)}>
           {loading ? <Spinner animation="border" size="sm" /> : 'Sign Up'}
         </button>
+
+        <p className="registered">Already have account? <a href="/">Login</a> here</p>
       </div>
     </div>
   );

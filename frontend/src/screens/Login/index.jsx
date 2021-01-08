@@ -109,6 +109,8 @@ function LoginScreen() {
             setRememberMe(event.target.checked);
           }}
         />
+
+        <p className="not-registered">Not registered yet? <a href="/signup">Signup</a> here</p>
       </div>
     </div>
   );
