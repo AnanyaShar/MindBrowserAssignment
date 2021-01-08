@@ -45,6 +45,28 @@ export function login(username, pass) {
   );
 }
 
+// Create Manager
+export function createManager(email, password, firstName, lastName) {
+  return HttpInstance.post(
+    '/register/registerManager',
+    {
+      email: email,
+      password: password,
+      firstName: firstName,
+      lastName: lastName,
+      company: 'DUMMY',
+      address: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
+      city: 'DUMMY',
+      country: 'DUMMY',
+      state: 'DUMMY',
+      zipCode: '12456',
+      mobile: '7209348092',
+      dob: '28/12/1997'
+    },
+    getConfig()
+  );
+}
+
 // Create Employee
 export function createEmployee(employee) {
   return HttpInstance.post(
