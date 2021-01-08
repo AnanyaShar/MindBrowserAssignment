@@ -67,6 +67,50 @@ export function createEmployee(employee) {
   );
 }
 
+// Update Employee
+export function updateEmployee(employee) {
+  return HttpInstance.put(
+    `/updateEmployee/${employee.id}`,
+    {
+      email: employee.email,
+      password: employee.password,
+      firstName: employee.firstName,
+      lastName: employee.lastName,
+      company: 'DUMMY',
+      address: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
+      city: 'DUMMY',
+      country: 'DUMMY',
+      state: 'DUMMY',
+      zipCode: '12456',
+      mobile: '7209348092',
+      dob: '28/12/1997'
+    },
+    getConfig()
+  );
+}
+
+// Delete Employee
+export function deleteEmployee(employee) {
+  return HttpInstance.post(
+    `/updateEmployee/${employee.id}`,
+    {
+      email: employee.email,
+      password: employee.password,
+      firstName: employee.firstName,
+      lastName: employee.lastName,
+      company: 'DUMMY',
+      address: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
+      city: 'DUMMY',
+      country: 'DUMMY',
+      state: 'DUMMY',
+      zipCode: '12456',
+      mobile: '7209348092',
+      dob: '28/12/1997'
+    },
+    getConfig()
+  );
+}
+
 // get all employees details
 export function getEmployees() {
   return HttpInstance.get('/getEmployee', getConfig());

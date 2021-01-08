@@ -15,16 +15,11 @@ import {useHistory, useLocation} from 'react-router-dom';
 // import {setFileDetails} from '../../store/details/actions';
 import {ProgressBar} from 'react-bootstrap';
 
-// export interface Props {
-//   files: any[];
-//   onDelete: any;
-// }
-
 /**
  * Employee List Component
  * @constructor
  */
-function EmployeeList({files, onDelete}) {
+function EmployeeList({files, updateEmployee}) {
   const history = useHistory();
   const location = useLocation();
 
@@ -43,7 +38,7 @@ function EmployeeList({files, onDelete}) {
 
         <div className="employee-list-view-container">
           {!!files && files.map((file, index) => (
-            <EmployeeListView key={index} file={file}/>
+            <EmployeeListView key={index} file={file} updateEmployeeHandler={updateEmployee}/>
           ))}
         </div>
     </div>

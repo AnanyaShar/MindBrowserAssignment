@@ -7,14 +7,28 @@ import TextInput from '../../../components/TextInput';
 
 import {validateEmail} from '../../../utils/string';
 
-const UpdateEmployeeModal = ({ handleClose, show, file }) => {
+const UpdateEmployeeModal = ({ handleClose, show, file, updateEmployee }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
 
   const [email, setEmail] = useState(file.email);
-//   const [password, setPassword] = useState(file);
+  const [password, setPassword] = useState(file.password);
   const [firstName, setFirstName] = useState(file.firstName);
   const [lastName, setLastName] = useState(file.lastName);
   const [loading, setLoading] = useState(false);
+
+  const updateEmployeeHandler = () => {
+    handleClose()
+
+    const employee = {
+      'id': file.id,
+      'email': email,
+      'password': password,
+      'firstName': firstName,
+      'lastName': lastName,
+    }
+
+    updateEmployee(employee)
+  }
 
   return (
     <div className={showHideClassName}>
@@ -30,24 +44,32 @@ const UpdateEmployeeModal = ({ handleClose, show, file }) => {
             <div className="label">Email Address</div>
             <TextInput
               type="email"
-              placeholder="name@example.com"
-              value={email}
+              placeholder={email}
               onChange={(event) => {
                 setEmail(event.target.value);
               }}
-              // onKeyDown={handleKeyPress}
             />
           </div>
+
+          <div className="email-container">
+            <div className="label">Password</div>
+            <TextInput
+              type="password"
+              placeholder={password}
+              onChange={(event) => {
+                setPassword(event.target.value);
+              }}
+            />
+          </div>
+
           <div className="email-container">
             <div className="label">First Name</div>
             <TextInput
               type="text"
-              placeholder="Ananya"
-              value={firstName}
+              placeholder={firstName}
               onChange={(event) => {
                 setFirstName(event.target.value);
               }}
-              // onKeyDown={handleKeyPress}
             />
           </div>
 
@@ -55,16 +77,14 @@ const UpdateEmployeeModal = ({ handleClose, show, file }) => {
             <div className="label">Last Name</div>
             <TextInput
               type="text"
-              placeholder="Sharma"
-              value={lastName}
+              placeholder={lastName}
               onChange={(event) => {
                 setLastName(event.target.value);
               }}
-              // onKeyDown={handleKeyPress}
             />
           </div>
 
-          <button disabled={!validateEmail(email)} onClick={handleClose}>
+          <button disabled={!validateEmail(email)} onClick={updateEmployeeHandler}>
           {loading ? <Spinner animation="border" size="sm" /> : 'Update'}
         </button>
         </div>

@@ -9,7 +9,7 @@ import AddEmployeeModal from './AddEmployeeModal';
 import EmployeeList from '../../components/EmployeeList';
 import Loading from '../../components/Loading';
 import TopBar from '../../components/TopBar';
-import {createEmployee, getEmployees} from '../../utils/service'
+import {createEmployee, updateEmployee, getEmployees} from '../../utils/service'
 // import Stats from './Stats';
 // import {setStats} from '../../store/user/actions';
 // import {RootState} from '../../store';
@@ -73,6 +73,31 @@ function DashboardScreen() {
     }
   }
 
+  const updateEmployeeHandler = (employee) => {
+    if(employee) {
+      setLoading(true);
+      updateEmployee(employee)
+        .then((res) => {
+          setSuccessAddEmployee('Employee updated Successfully');
+        })
+        .then(() => {
+          return getEmployees();
+        })
+        .then((res) => {
+          dispatch(setProfile(res.data));
+        })
+        .then(() => {
+          history.push('/dashboard')
+        })
+        .finally(() => {
+          setLoading(false);
+        })
+        .catch((err) => {
+          setSuccessAddEmployee(err.response.data.message);
+        });
+    }
+  }
+
   const openNewEmployeeModal = () => {
     setAddEmployee(true);
   }
@@ -98,7 +123,10 @@ function DashboardScreen() {
             <button onClick={openNewEmployeeModal}>Add New Employee</button>
         </div>
 
-        <EmployeeList files={profiles.employee}/>
+        <EmployeeList 
+          files={profiles.employee}
+          updateEmployee={updateEmployeeHandler}
+        />
       </div>
 
     </div>

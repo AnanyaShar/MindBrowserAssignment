@@ -13,14 +13,12 @@ import {ProgressBar} from 'react-bootstrap';
  * Employee List View Component
  * @constructor
  */
-function EmployeeListView({file}) {
+function EmployeeListView({file, updateEmployeeHandler}) {
   const history = useHistory();
   const location = useLocation();
 
   const [updateEmployee, setUpdateEmployee] = useState(false);
   const [deleteEmployee, setDeleteEmployee] = useState(false);
-
-  console.log(file);
 
   return (
     <div className="employee-list-view">
@@ -28,6 +26,7 @@ function EmployeeListView({file}) {
         show={updateEmployee}
         handleClose={() => setUpdateEmployee(false)}
         file={file}
+        updateEmployee={updateEmployeeHandler}
       />
 
       <DeleteEmployeeModal 
